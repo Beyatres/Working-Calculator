@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calcu.css">
+</head>
+<body>
+    <div class="container"> 
+    <form action="" name="calcu">
+        <input type="text" id="result" disabled style="width: 225px; height: 70px; background-color: lightgrey;">
+        <input class="button" type="button" onclick="clearInput()" value="C" style="width: 70px; height: 65px; background-color: brown;" ><br>
+        <input class="button" type="button" onclick="append(1)" value="1">
+        <input class="button" type="button" onclick="append(2)" value="2">
+        <input class="button" type="button" onclick="append(3)" value="3">
+        <input class="button" type="button" onclick="divide('/')" value="/" style="width: 70px; height: 65px; background-color: burlywood"><br>
+        <input class="button" type="button" onclick="append(4)" value="4">
+        <input class="button" type="button" onclick="append(5)" value="5">
+        <input class="button" type="button" onclick="append(6)" value="6">
+        <input class="button" type="button" onclick="subtract('-')" value="-" style="width: 70px; height: 65px; background-color: burlywood"><br>
+        <input class="button" type="button" onclick="append(7)" value="7">
+        <input class="button" type="button" onclick="append(8)" value="8">
+        <input class="button" type="button" onclick="append(9)" value="9">
+        <input class="button" type="button" onclick="add('+')" value="+" style="width: 70px; height: 65px; background-color: burlywood"><br>
+        <input class="button" type="button" onclick="append('.')" value=".">
+        <input class="button" type="button" onclick="append(0)" value="0">
+        <input class="button" type="button" onclick="calculate('=')" value="=" style="background-color: brown;">
+        <input class="button" type="button" onclick="multiply('*')" value="*" style="width: 70px; height: 65px; background-color: burlywood ">
+    </form>
+     </div>
+
+
+<script>
+    let currentInput = '';
+    let currentOperator = '';
+
+    function append(number) {
+        currentInput += number;
+        document.getElementById('result').value = currentInput;
+    }
+
+    function add() {
+        currentOperator = '+';
+        currentInput += currentOperator;
+        document.getElementById('result').value = currentInput;
+    }
+    
+    function subtract() {
+        currentOperator = '-';
+        currentInput += currentOperator;
+        document.getElementById('result').value = currentInput;
+    }
+
+    function multiply() {
+        currentOperator = '*';
+        currentInput += currentOperator;
+        document.getElementById('result').value = currentInput;
+    }
+
+    function divide() {
+        currentOperator = '/';
+        currentInput += currentOperator;
+        document.getElementById('result').value = currentInput;
+    }
+
+    function clearInput(){
+        currentInput = '';
+        currentOperator= '';
+        document.getElementById('result').value= '';
+    }
+
+    function calculate() {
+        const result = eval(currentInput);
+        document.getElementById('result').value= result;
+        currentInput= result.toString();
+        currentOperator= '';
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
